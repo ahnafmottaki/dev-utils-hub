@@ -9,25 +9,36 @@ Welcome to **Dev Utils Hub** — a collection of reusable utilities, helper func
 ## 📁 Folder Overview
 
 ### `/react`
+
 Contains utilities for React apps.
+
 - **PrivateRoute.jsx**: HOC to protect routes based on auth state.
 
 ### `/firebase`
+
 Firebase-specific code and helpers.
+
 - **encodeServiceAccount.js**: Encodes Firebase service account JSON to base64 (useful for CI/CD).
-- **firebaseInit.js**: Firebase app initialization code for modular SDK setup.
+- **convertServiceAccount**: Convert your Base64 service key to UTF-8
 
 ### `/express`
+
 Backend middleware and utilities.
+
 - **errorHandler.js**: Global error-handling middleware.
 
 ### `/scripts`
+
 Standalone Node scripts.
+
 - **encodeToBase64.js**: Generic file or string base64 encoder.
 
 ### `/utils`
+
 General-purpose utilities.
-- **debounce.js**: Debounce function to limit frequent function calls.
+
+- **ApiResponse**: Class for sending response in express
+- **AppError**: Class for handling error in express
 
 ---
 
