@@ -8,37 +8,42 @@ Welcome to **Dev Utils Hub** — a collection of reusable utilities, helper func
 
 ## 📁 Folder Overview
 
-### `/react`
+### `/express`
 
-Contains utilities for React apps.
+Backend middleware and utilities.
 
-- **PrivateRoute.jsx**: HOC to protect routes based on auth state.
+- **errorHandler.js**: Global error-handling middleware.
+- **asyncHandler.js**: Best way to handle Errors.
 
 ### `/firebase`
 
 Firebase-specific code and helpers.
 
 - **encodeServiceAccount.js**: Encodes Firebase service account JSON to base64 (useful for CI/CD).
-- **convertServiceAccount**: Convert your Base64 service key to UTF-8
+- **convertServiceAccount**: Convert your Base64 service key to UTF-8.
 
-### `/express`
+### `/mongodb/templates`
 
-Backend middleware and utilities.
+MongoDB Feature Templates
 
-- **errorHandler.js**: Global error-handling middleware.
+- **create-collection-with-validator.js**: Add Schema Validation to your document via validator.
+
+### `/react`
+
+Contains utilities for React apps.
+
+- **PrivateRoute.jsx**: HOC to protect routes based on auth state.
 
 ### `/scripts`
 
 Standalone Node scripts.
 
-- **encodeToBase64.js**: Generic file or string base64 encoder.
-
 ### `/utils`
 
 General-purpose utilities.
 
-- **ApiResponse**: Class for sending response in express
-- **AppError**: Class for handling error in express
+- **ApiResponse**: Best Practice for sending response in express via Class.
+- **AppError**: Best Practice for handling error in express via Class.
 
 ---
 
