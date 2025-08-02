@@ -26,6 +26,8 @@ db.createCollection("yourCollectionName", {
         email: {
           bsonType: "string",
           pattern: "^\\S+@\\S+\\.\\S+$", // basic email regex
+          minLength: 5,
+          maxLength: 255,
           description: "Must be a valid email format",
         },
 
@@ -33,12 +35,15 @@ db.createCollection("yourCollectionName", {
         password: {
           bsonType: "string",
           minLength: 6,
+          maxLength: 1024,
           description: "Password must be at least 6 characters long",
         },
 
         // Simple string
         profilePic: {
           bsonType: "string",
+          minLength: 5,
+          maxLength: 500,
           description: "Image URL or file path (optional)",
         },
 
@@ -66,7 +71,10 @@ db.createCollection("yourCollectionName", {
         // Optional array of strings
         tags: {
           bsonType: "array",
-          items: { bsonType: "string" },
+          items: { bsonType: "string", minLength: 1 },
+          minItems: 0,
+          maxItems: 20,
+          uniqueItems: true,
           description: "Array of tag strings",
         },
 
@@ -75,9 +83,9 @@ db.createCollection("yourCollectionName", {
           bsonType: "object",
           required: ["district", "postalCode"],
           properties: {
-            district: { bsonType: "string" },
-            postalCode: { bsonType: "string" },
-            street: { bsonType: "string" },
+            district: { bsonType: "string", minLength: 2, maxLength: 50 },
+            postalCode: { bsonType: "string", pattern: "^[0-9]{4,10}$" },
+            street: { bsonType: "string", minLength: 2, maxLength: 100 },
           },
           description: "User address info (optional but validated if present)",
         },
@@ -85,6 +93,9 @@ db.createCollection("yourCollectionName", {
         // ✅ NESTED ARRAY of OBJECTS example
         enrollments: {
           bsonType: "array",
+          minItems: 0,
+          maxItems: 100,
+          uniqueItems: false, // Can be true if each enrollment must be unique
           items: {
             bsonType: "object",
             required: ["courseId", "enrolledAt"],
