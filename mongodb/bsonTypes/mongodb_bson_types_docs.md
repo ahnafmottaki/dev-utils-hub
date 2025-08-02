@@ -1,4 +1,4 @@
----
+
 
 # 📄 int.md
 
@@ -25,7 +25,7 @@ quantity: {
 db.items.insertOne({ quantity: NumberInt(42) });
 ```
 
----
+
 
 # 📄 long.md
 
